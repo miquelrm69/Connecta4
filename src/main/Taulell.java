@@ -5,14 +5,12 @@
  */
 package main;
 
-import java.util.Arrays;
-
 /**
  *
  * @author Miquel
  */
 public class Taulell {
-    private int[][] gridTaulell;
+    private static int[][] gridTaulell;
     private String nomTaulell;
     private int files, columnes;
     public Taulell(String nomTaulell) throws IllegalStateException {
@@ -36,55 +34,67 @@ public class Taulell {
         return -1;
     }
 
+    private static boolean checkColumnaBuida(int columna) {
+        boolean isEmpty = true;
+        for (int f = gridTaulell.length - 1; f >= 0; f--) {
+            if (gridTaulell[f][columna] == 0) {
+                isEmpty = true;
+            } else {
+                isEmpty = false;
+            }
+        }
+        return isEmpty;
+    }
+
     public boolean insertaFitxa(char lletraColumna, Jugador jugador) {
         int fila;
         lletraColumna = Character.toUpperCase(lletraColumna);
         switch (lletraColumna) {
             case 'A':
                 fila = comprovaLlocBuid(0);
-                if (fila != -1) {
+                if (fila != -1 && checkColumnaBuida(0) ) {
                     gridTaulell[fila][0] = jugador.getJugadorType();
                     return true;
                 }
                 break;
             case 'B':
                 fila = comprovaLlocBuid(1);
-                if (fila != -1) {
+                if (fila != -1 && checkColumnaBuida(1)) {
                     gridTaulell[fila][1] = jugador.getJugadorType();
                     return true;
                 }
                 break;
             case 'C':
                 fila = comprovaLlocBuid(2);
-                if (fila != -1) {
+                if (fila != -1 && checkColumnaBuida(2)) {
                     gridTaulell[fila][2] = jugador.getJugadorType();
                     return true;
                 }
                 break;
             case 'D':
                 fila = comprovaLlocBuid(3);
-                if (fila != -1) {
+                if (fila != -1 && checkColumnaBuida(3)) {
                     gridTaulell[fila][3] = jugador.getJugadorType();
                     return true;
                 }
                 break;
             case 'E':
                 fila = comprovaLlocBuid(4);
-                if (fila != -1) {
+                if (fila != -1 && checkColumnaBuida(4)) {
                     gridTaulell[fila][4] = jugador.getJugadorType();
                     return true;
                 }
                 break;
             case 'F':
                 fila = comprovaLlocBuid(5);
-                if (fila != -1) {
+                if (fila != -1 && checkColumnaBuida(5)) {
                     gridTaulell[fila][5] = jugador.getJugadorType();
                     return true;
                 }
                 break;
             case 'G':
                 fila = comprovaLlocBuid(6);
-                if (fila != -1) {
+                if (fila != -1 && checkColumnaBuida(6)) {
                     gridTaulell[fila][6] = jugador.getJugadorType();
                     return true;
                 }

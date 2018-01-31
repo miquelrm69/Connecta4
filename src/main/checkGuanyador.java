@@ -13,6 +13,8 @@ public class checkGuanyador {
             return true;
         } else if (comprovaDiagonalEsquerra()){
             return true;
+        } else if (comprovaDiagonalDreta()) {
+            return true;
         } else {
             return false;
         }
@@ -70,25 +72,64 @@ public class checkGuanyador {
         return false;
     }
 
-    private static boolean comprovaDiagonalEsquerra() {
-        for (int c = 0; c < 4; c++) {
-            countPlayer1 = 0;
-            countPlayer2 = 0;
-            for (int i = c; i <= 4; i++) {
-                if (gridTaulell[c][i] == 0) {
-                    break;
-                } else if (gridTaulell[c][i] == 1) {
-                    countPlayer1++;
-                    if (countPlayer1 == 4) {
-                        return true;
-                    }
-                } else if (gridTaulell[c][i] == 2) {
-                    countPlayer2++;
-                    if (countPlayer2 == 4) {
-                        return true;
+    private static boolean comprovaDiagonalDreta() {
+        for (int c = gridTaulell[0].length - 1; c >= 0; c--) {
+            for (int f = 0; f < 4; f++) {
+                for (int check = 0; check < 4; check++) {
+                    if (f + check <= 5 && c - check >= 0) {
+                        if (gridTaulell[f + check][c - check] == 0) {
+                            countPlayer1 = 0;
+                            countPlayer2 = 0;
+                            break;
+                        } else if (gridTaulell[f + check][c - check] == 1) {
+                            countPlayer2 = 0;
+                            countPlayer1++;
+                            if (countPlayer1 == 4) {
+                                return true;
+                            }
+                        } else if (gridTaulell[f + check][c - check] == 2) {
+                            countPlayer1 = 0;
+                            countPlayer2++;
+                            if (countPlayer2 == 4) {
+                                return true;
+                            }
+                        }
+                    } else {
+                        break;
                     }
                 }
             }
+        }
+        return false;
+    }
+
+    private static boolean comprovaDiagonalEsquerra() {
+        for (int c = 0; c < 4; c++) {
+           for (int f = 0; f < 3; f++) {
+               for (int check = 0; check < 4; check++) {
+                   if (f + check <= 5 && c + check <= 6) {
+                       if (gridTaulell[f + check][c + check] == 0) {
+                           countPlayer1 = 0;
+                           countPlayer2 = 0;
+                           break;
+                       } else if (gridTaulell[f + check][c + check] == 1) {
+                           countPlayer2 = 0;
+                           countPlayer1++;
+                           if (countPlayer1 == 4) {
+                               return true;
+                           }
+                       } else if (gridTaulell[f + check][c + check] == 2) {
+                           countPlayer1 = 0;
+                           countPlayer2++;
+                           if (countPlayer2 == 4) {
+                               return true;
+                           }
+                       }
+                   } else {
+                       break;
+                   }
+               }
+           }
         }
         return false;
     }

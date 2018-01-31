@@ -68,11 +68,11 @@ public class Joc {
                 }
             } else if (tornJugador == 2) {
                 System.out.println("Torn per a " + jugador_2.getNomJugador());
-                System.out.print("Introdueix una columna: ");
-                char columna = input.next().charAt(0);
-                if (taulell.insertaFitxa(columna, jugador_2)) {
-                    if (!checkGuanyador.comprovaQuatreEnLinea(taulell)) {
-                        tornJugador = 1;
+                        System.out.print("Introdueix una columna: ");
+                        char columna = input.next().charAt(0);
+                        if (taulell.insertaFitxa(columna, jugador_2)) {
+                            if (!checkGuanyador.comprovaQuatreEnLinea(taulell)) {
+                                tornJugador = 1;
                     } else {
                         System.out.println("\n\n\n\nJa hi ha un guanyador!");
                         PrintTaulell.showTaulell(taulell);
