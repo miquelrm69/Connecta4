@@ -23,6 +23,6 @@ public class Tester {
         testT[5][1] = 1;
         testT[2][4] = 1;
         PrintTaulell.showTaulell(taulell);
-        System.out.println("Guanyador: " + checkGuanyador.comprovaQuatreEnLinea(taulell));
+        System.out.println("Guanyador " +  checkGuanyador.comprovaQuatreEnLinea(taulell));
     }
 }

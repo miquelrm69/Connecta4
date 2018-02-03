@@ -19,7 +19,7 @@ public class Joc {
         System.out.println("------------------------------------");
         System.out.println("Benvinguts " + jugador_1.getNomJugador() + " i " + jugador_2.getNomJugador());
         System.out.println("Començam el joc!!");
-        System.out.println(turnosJugadors());
+        System.out.println(tornsJugadors());
     }
 
     public static void menuInicial() {
@@ -45,7 +45,7 @@ public class Joc {
         }
     }
 
-    private static String turnosJugadors() {
+    private static String tornsJugadors() {
         while (true) {
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n");
             System.out.println("Nom del joc: " + taulell.getNomTaulell());

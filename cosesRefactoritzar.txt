@@ -1,0 +1,6 @@
+REFACTORITZACIÓ CONNECTA 4:
+
+- Classe checkGuanyador -> afegir un metode per a la comprovació de si la posició és 0, 1 o 2
+				ja que hi ha code repetit.
+
+- 
